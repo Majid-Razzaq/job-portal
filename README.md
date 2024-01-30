@@ -43,3 +43,12 @@ Application Confirmation: Users receive an email confirmation after applying for
 -  Set up your database configuration in the .env file.
 -  Run php artisan migrate to create the necessary database tables.
 -  Customize the application as needed.
+
+```javascript
+composer install
+```
+
+```javascript
+php artisan migrate
+```
+
