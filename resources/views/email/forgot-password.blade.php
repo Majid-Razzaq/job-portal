@@ -7,7 +7,6 @@
     <title>Forgot Password Email</title>
 </head>
 <body>
-
     <h1>Hello: {{ $mailData['user']->name }}</h1>
 
     <p>Click below to change your password.</p>
