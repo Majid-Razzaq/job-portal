@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+         \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
@@ -23,6 +23,6 @@ class DatabaseSeeder extends Seeder
 
         // \App\Models\Category::factory(5)->create();
         // \App\Models\JobType::factory(5)->create();
-        \App\Models\Job::factory(25)->create();
+       // \App\Models\Job::factory(25)->create();
     }
 }

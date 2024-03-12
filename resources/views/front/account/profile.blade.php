@@ -20,7 +20,7 @@
             <div class="col-lg-9">
                 @include('front.message')
                 <div class="card border-0 shadow mb-4">
-                <form action="" method="post" id="useForm" name="useForm">
+                <form action="" method="post" id="userForm" name="userForm">
                     @csrf
                     <div class="card-body  p-4">
                         <h3 class="fs-4 mb-1">My Profile</h3>
@@ -50,29 +50,29 @@
                 </div>
 
                 <form action="" method="post" name="changePasswordForm" id="changePasswordForm">
-                <div class="card border-0 shadow mb-4">
-                    <div class="card-body p-4">
-                        <h3 class="fs-4 mb-1">Change Password</h3>
-                        <div class="mb-4">
-                            <label for="" class="mb-2">Old Password*</label>
-                            <input type="password" name="old_password" id="old_password" placeholder="Old Password" class="form-control">
-                            <p></p>
+                    <div class="card border-0 shadow mb-4">
+                        <div class="card-body p-4">
+                            <h3 class="fs-4 mb-1">Change Password</h3>
+                            <div class="mb-4">
+                                <label for="" class="mb-2">Old Password*</label>
+                                <input type="password" name="old_password" id="old_password" placeholder="Old Password" class="form-control">
+                                <p></p>
+                            </div>
+                            <div class="mb-4">
+                                <label for="" class="mb-2">New Password*</label>
+                                <input type="password" name="new_password" id="new_password" placeholder="New Password" class="form-control">
+                                <p></p>
+                            </div>
+                            <div class="mb-4">
+                                <label for="" class="mb-2">Confirm Password*</label>
+                                <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" class="form-control">
+                                <p></p>
+                            </div>
                         </div>
-                        <div class="mb-4">
-                            <label for="" class="mb-2">New Password*</label>
-                            <input type="password" name="new_password" id="new_password" placeholder="New Password" class="form-control">
-                            <p></p>
-                        </div>
-                        <div class="mb-4">
-                            <label for="" class="mb-2">Confirm Password*</label>
-                            <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" class="form-control">
-                            <p></p>
+                        <div class="card-footer  p-4">
+                            <button type="submit" name="submit" id="submit" class="btn btn-primary">Update</button>
                         </div>
                     </div>
-                    <div class="card-footer  p-4">
-                        <button type="submit" name="submit" id="submit" class="btn btn-primary">Update</button>
-                    </div>
-                </div>
             </form>
             </div>
         </div>
@@ -83,13 +83,13 @@
 
 @section('customJs')
 <script type="text/javascript">
-    $("#useForm").submit(function (e) {
+    $("#userForm").submit(function (e) {
         e.preventDefault();
 
         $.ajax({
             type: "put",
             url: "{{ route('account.updateProfile') }}",
-            data: $("#useForm").serializeArray(),
+            data: $("#userForm").serializeArray(),
             dataType: "json",
             success: function (response) {
                 if(response.status == true){

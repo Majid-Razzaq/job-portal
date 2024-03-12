@@ -96,6 +96,54 @@
                         </div>
                     </div>
                 </div>
+
+                @if (Auth::user())
+                @if (Auth::user()->id == $job->user_id)
+
+                <div class="card shadow border-0 mt-4">
+                    <div class="job_details_header">
+                        <div class="single_jobs white-bg d-flex justify-content-between">
+                            <div class="jobs_left d-flex align-items-center">
+
+                                <div class="jobs_conetent">
+                                        <h4>Applicants</h4>
+
+                                </div>
+                            </div>
+                            <div class="jobs_right"></div>
+                        </div>
+                    </div>
+                    <div class="descript_wrap white-bg">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Mobile</th>
+                                <th>Applied Date</th>
+                            </tr>
+                            @if ($applications->isNotEmpty())
+                                @foreach ($applications as $application)
+                                    <tr>
+                                        <td>{{ $application->user->name }}</td>
+                                        <td>{{ $application->user->email }}</td>
+                                        <td>{{ $application->user->mobile }}</td>
+                                        <td> {{ \Carbon\Carbon::parse($application->applied_date)->format('d M, Y')   }}</td>
+                                    </tr>
+                                @endforeach
+                                @else
+                                    <tr>
+                                        <td colspan="3">Applicants not found</td>
+                                    </tr>
+                            @endif
+
+                        </table>
+
+                    </div>
+                </div>
+
+                @endif
+                @endif
+
             </div>
             <div class="col-md-4">
                 <div class="card shadow border-0">
@@ -143,30 +191,6 @@
         </div>
     </div>
 </section>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title pb-0" id="exampleModalLabel">Change Profile Picture</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Profile Image</label>
-                <input type="file" class="form-control" id="image"  name="image">
-            </div>
-            <div class="d-flex justify-content-end">
-                <button type="submit" class="btn btn-primary mx-3">Update</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
 
 @endsection
 

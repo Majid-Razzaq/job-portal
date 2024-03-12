@@ -10027,3 +10027,15 @@ footer .nav-link {
 .light-green{
     color: #A8DF8E !important;
 }
+.trumbowyg-editor ul li{
+    list-style: disc;
+}
+.dashboard{
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pagination span{
+    font-size:inherit ;
+}
