@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\DashboardController;
