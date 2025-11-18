@@ -100,5 +100,4 @@ Route::group(['prefix' => 'account'], function () {
         // Change Password
         Route::post('/change-password',[AccountController::class,'changePassword'])->name('account.changePassword');
     });
-
 });
